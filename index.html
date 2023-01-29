@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Presentation Tailwind CSS</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/custom.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai	.css">
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2 class="r-stretch" style="display: flex; justify-content: center; align-items: center; margin: 0;">Tailwind
+					CSS</h2>
+				<div style="display: flex; justify-content: flex-start;" <a href="https://rs.school/js/" target="_blank">
+					<img style="filter: invert(1);" src="./assets/rs_school_js.svg" width="150" alt="RS School logo">
+					</a>
+				</div>
+			</section>
+			<section>
+				<section>What is Tailwind?</section>
+				<section>
+					A utility-first CSS framework packed with special classes that can be composed to build any design, directly in your markup.
+					<pre><code><div class="flex justify-center font-bold text-red-400">
+	Header
+</div></code></pre>
+				</section>
+				<section>
+					With basic CSS
+					<pre >
+						<code data-line-numbers class="text-sm"><div class="chat-notification">
+	<div class="chat-notification-logo-wrapper">
+		<img class="chat-notification-logo" src="/img/logo.svg" alt="ChitChat Logo">
+	</div>
+	<div class="chat-notification-content">
+		<h4 class="chat-notification-title">ChitChat</h4>
+		<p class="chat-notification-message">You have a new message!</p>
+	</div>
+</div>
+
+<style>
+	.chat-notification {
+		display: flex;
+		max-width: 24rem;
+		margin: 0 auto;
+		padding: 1.5rem;
+		border-radius: 0.5rem;
+		background-color: #fff;
+		box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	}
+	.chat-notification-logo-wrapper {
+		flex-shrink: 0;
+	}
+	.chat-notification-logo {
+		height: 3rem;
+		width: 3rem;
+	}
+	.chat-notification-content {
+		margin-left: 1.5rem;
+		padding-top: 0.25rem;
+	}
+	.chat-notification-title {
+		color: #1a202c;
+		font-size: 1.25rem;
+		line-height: 1.25;
+	}
+	.chat-notification-message {
+		color: #718096;
+		font-size: 1rem;
+		line-height: 1.5;
+	}
+</style>
+						</code>
+					</pre>
+				</section>
+				<section>
+					With Tailwind CSS
+					<pre>
+						<code data-line-numbers class="text-sm"><div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
+	<div class="shrink-0">
+		<img class="h-12 w-12" src="/img/logo.svg" alt="ChitChat Logo">
+	</div>
+	<div>
+		<div class="text-xl font-medium text-black">ChitChat</div>
+		<p class="text-slate-500">You have a new message!</p>
+	</div>
+</div>
+						</code>
+					</pre>
+				</section>
+				<section>
+					CSS frameworks retention ratio rankings
+					<div class="flex justify-center">
+						<img src="./assets/state_of_css_rating.png">
+					</div>
+				</section>
+			</section>
+
+			<section>
+				<section>How to install?</section>
+				<section>
+					<p>1. Using Play CDN</p>
+					<pre><code><script src="https://cdn.tailwindcss.com"></script></code></pre>
+				</section>
+				<section>
+					<p class="text-[32px]">2. Using Tailwind CLI tool</p>
+					<div style="display: grid; grid-template-columns: 1fr 2.5fr; text-align: left;">
+						<p class="text-[18px]">Install Tailwind CSS</p>	
+						<pre><code class="text-[16px] leading-tight">/** Terminal */
+	install -D tailwindcss
+	npx tailwindcss init</code></pre>
+						<p class="text-[18px]">Configure your template paths</p>
+						<pre><code class="text-[16px] leading-tight">/** tailwind.config.js */
+	module.exports = {
+		content: ["./src/**/*.{html,js}"],
+		theme: {
+			extend: {},
+		},
+		plugins: [],
+	}</code></pre>
+						<p class="text-[18px]">Add the Tailwind directives to your CSS</p>
+						<pre><code class="text-[16px] leading-tight">/** src/input.css */
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;</code></pre>
+						<p class="text-[18px]">Start the Tailwind CLI build process</p>
+						<pre><code class="text-[16px] leading-tight">/** Terminal */
+	npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch</code></pre>
+						<p class="text-[18px]">Start using Tailwind in your HTML</p>
+						<pre><code class="text-[16px] leading-tight">/** src/index.html */
+	<link href="/dist/output.css" rel="stylesheet"></code></pre>
+					</div>
+				</section>
+				<section>
+					3. Framework <a href="https://tailwindcss.com/docs/installation/framework-guides" style="text-decoration: underline;">Guides</a>
+					<div class="flex justify-center">
+						<img src="./assets/js_frameworks.png" alt="">
+					</div>
+				</section>
+			</section>
+			<section>
+				Tailwind classes
+				<pre class="text-[18px]"><code><button class="px-6 h-12 uppercase font-semibold 
+	border-4 border-yellow-500 rounded-md bg-teal-400 
+	text-black" type="submit">
+  Buy now
+</button></code></pre>
+<button class="px-6 h-12 text-[14px] uppercase font-semibold border-4 border-yellow-500 rounded-md bg-teal-400 text-black" type="submit">
+	Buy now
+</button>
+			</section>
+			<section>
+				Adding custom classes
+				<div class="flex justify-center scale-[0.9] -mt-[40px]">
+					<img src="./assets/custom_classes.png">
+				</div>
+			</section>
+			<section>
+				Responsive design
+				<div class="flex justify-center">
+					<img src="./assets/screen_breakpoints.png">
+				</div>
+			</section>
+			<section>
+				Handling hover, focus, and other states
+				<pre><code><button class="bg-sky-500 hover:bg-sky-700">
+  Save changes
+</button></code></pre>
+			</section>
+			<section>
+				Tailwind with IDE
+				<div class="flex justify-center">
+					<img src="./assets/intellisense.5ec85ce2a1d8616ed8519c23837e34a2.png">
+				</div>
+			</section>
+			<section>
+				<div class="flex items-center justify-center"> 
+					<img src="./assets/tailwind-css-1.svg" class="w-[350px] p-2 bg-white rounded-md">
+					<span class="ml-8 mr-4">vs</span>
+					<img src="./assets/logo-bootstrap.png" class="w-[400px]">
+				</div>
+			</section>
+			<section>
+				<section>Drawbacks</section>
+				<section>
+					<p>It can get messy with a long list of classes</p>
+					<img src="./assets/messy_tailwind.png" style="margin: 0 auto;">
+				</section>
+				<section>
+					<img src="./assets/css_structure.png" style="margin: 0 auto;">
+				</section>
+				<section>
+					You should always give names to the elements
+					<p class="text-2xl">How about component “bg-white w-full py-3 px-4”?</p>
+				</section>
+				<section>Some classes are confusing
+				</section>
+			</section>
+			
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
